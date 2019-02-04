@@ -32,7 +32,7 @@ forest.gfx_engine = {
             }
 
             //Boucle de génération des arbres aléatoires :
-            for (let i = 0; i < 500; i++) {
+            for (let i = 0; i < 300; i++) {
 
                 let cloned_tree = object.clone();
                 cloned_tree.position.set(entierAleatoire(-250, 250), -10, entierAleatoire(-15, -2500));
