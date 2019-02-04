@@ -25,7 +25,7 @@ forest.gfx_engine = {
 
         // model
         const loader = new THREE.FBXLoader();
-        loader.load('./obj/source/Fur_troe_mesh.fbx', function (object) {
+        loader.load('./tree/source/Fur_troe_mesh.fbx', function (object) {
             object.traverse(function (child) {
                 if (child.isMesh) {
                     child.castShadow = true;
