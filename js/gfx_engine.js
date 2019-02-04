@@ -31,7 +31,7 @@ forest.gfx_engine = {
                 return Math.floor(Math.random() * (max - min + 1)) + min;
             }
 
-            //Boucle de génération des arbres :
+            //Boucle de génération des arbres aléatoires :
             for (let i = 0; i < 500; i++) {
 
                 let cloned_tree = object.clone();
