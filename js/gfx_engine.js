@@ -18,6 +18,27 @@ forest.gfx_engine = {
 
         const perf = forest.configuration.high_performance || true;
 
+        //light pour le sapin :
+        const light = new THREE.DirectionalLight(0xffffff);
+        light.position.set(0, 0, 10);
+        this.scene.add(light);
+
+        // model
+        const loader = new THREE.FBXLoader();
+        loader.load('./obj/source/Fur_troe_mesh.fbx', function (object) {
+            object.traverse(function (child) {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+            object.position.set(0, -0.2, -2);
+            object.scale.set(0.001, 0.001, 0.001);
+            forest.gfx_engine.scene.add(object);
+            console.log("object added !");
+            
+        });
+
         // --- renderer :
         this.renderer = new THREE.WebGLRenderer({ antialias: perf }); //option qui prend des ressources
         this.renderer.setPixelRatio(window.devicePixelRatio); //standard du pixel (carré etc ...)

@@ -26,7 +26,7 @@ forest.game = {
 
         //Boucle de génération des arbres :
         for (let i = 0; i < 500; i++) {
-            let cylinder = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 2.5, 50, 50), material);
+            let cylinder = new THREE.Mesh(new THREE.CylinderGeometry(1, 6, 50, 50), material);
             cylinder.position.set(entierAleatoire(-250, 250), -10, entierAleatoire(-15, -2500));
             this.trees.push(cylinder);
             forest.gfx_engine.scene.add(cylinder);
@@ -41,7 +41,7 @@ forest.game = {
 
     update: function () {
         const gfx = forest.gfx_engine;
-        gfx.camera.translateZ(-1);
+        //gfx.camera.translateZ(-2);
 
         for (let j = 0; j < this.trees.length; j++) {
             if (this.trees[j].position.z > forest.gfx_engine.camera.position.z) {
