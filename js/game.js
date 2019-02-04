@@ -25,13 +25,13 @@ forest.game = {
         let material = new THREE.MeshBasicMaterial({ color: 0x808000 });
 
         //Boucle de génération des arbres :
-        for (let i = 0; i < 500; i++) {
+        /*for (let i = 0; i < 500; i++) {
             let cylinder = new THREE.Mesh(new THREE.CylinderGeometry(1, 6, 50, 50), material);
             cylinder.position.set(entierAleatoire(-250, 250), -10, entierAleatoire(-15, -2500));
             this.trees.push(cylinder);
             forest.gfx_engine.scene.add(cylinder);
             console.log('arbres générés');
-        };
+        };*/
 
         //On affiche le résultat à l'aide du renderer
         forest.gfx_engine.renderer.setClearColor('#2266ff');
@@ -41,7 +41,7 @@ forest.game = {
 
     update: function () {
         const gfx = forest.gfx_engine;
-        //gfx.camera.translateZ(-2);
+        gfx.camera.translateZ(-2);
 
         for (let j = 0; j < this.trees.length; j++) {
             if (this.trees[j].position.z > forest.gfx_engine.camera.position.z) {

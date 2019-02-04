@@ -26,17 +26,32 @@ forest.gfx_engine = {
         // model
         const loader = new THREE.FBXLoader();
         loader.load('./tree/source/Fur_troe_mesh.fbx', function (object) {
+
+            function entierAleatoire(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            //Boucle de génération des arbres :
+            for (let i = 0; i < 500; i++) {
+
+                let cloned_tree = object.clone();
+                cloned_tree.position.set(entierAleatoire(-250, 250), -10, entierAleatoire(-15, -2500));
+                forest.game.trees.push(cloned_tree);
+                //cloned_tree.position.set(0, -0.2, -2);
+                cloned_tree.scale.set(0.05, 0.05, 0.05);
+                forest.gfx_engine.scene.add(cloned_tree);
+                console.log("fbx objects added !");
+            };
+
             object.traverse(function (child) {
+
                 if (child.isMesh) {
                     child.castShadow = true;
                     child.receiveShadow = true;
                 }
+
             });
-            object.position.set(0, -0.2, -2);
-            object.scale.set(0.001, 0.001, 0.001);
-            forest.gfx_engine.scene.add(object);
-            console.log("object added !");
-            
+
         });
 
         // --- renderer :
